@@ -12,7 +12,9 @@ class Test < ApplicationRecord
   validates :level, numericality: { only_integer: true }, allow_nil: true
   validate :validate_max_level, on: :create
 
-  scope :easy, ->(level) { where(level: level).order(created_at: :desc) }
+  scope :easy,    -> { where(level: 0..1) }
+  scope :medium,  -> { where(level: 2..4) }
+  scope :hard,    -> { where(level: 5..Float::INFINITY) }
 
   def self.sort_by_category(category_title)
     joins(:category)
