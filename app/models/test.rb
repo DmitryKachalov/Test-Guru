@@ -12,14 +12,16 @@ class Test < ApplicationRecord
   validates :level, numericality: { only_integer: true }, allow_nil: true
   validate :validate_max_level, on: :create
 
-  scope :easy,    -> { where(level: 0..1) }
-  scope :medium,  -> { where(level: 2..4) }
-  scope :hard,    -> { where(level: 5..Float::INFINITY) }
+  default_scope { order(title: :desc)  }
+
+  scope :level, ->(level) { where(level: level) }
+  scope :easy,    -> { level(0..1) }
+  scope :medium,  -> { level(2..4) }
+  scope :hard,    -> { level(5..Float::INFINITY) }
 
   def self.sort_by_category(category_title)
     joins(:category)
         .where(categories: { title: category_title })
-        .order(title: :desc)
         .pluck(:title)
   end
 

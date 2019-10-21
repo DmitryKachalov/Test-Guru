@@ -4,6 +4,6 @@ class User < ApplicationRecord
 
   has_many :tests_created, class_name: 'Test', foreign_key: :author_id
   def by_level(level)
-    tests.where(level: level)
+    tests.level(level)
   end
 end
