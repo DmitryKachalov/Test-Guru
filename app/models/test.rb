@@ -8,16 +8,21 @@ class Test < ApplicationRecord
   belongs_to :author, class_name: 'User'
 
   validates :title, presence: true,
-                    uniqueness: true
-  validates :level, numericality: { only_integer: true }, allow_nil: true
+                    uniqueness: { scope: :level,
+                                  message: 'Title and Level must be unique' }
+  validates :level, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validate :validate_max_level, on: :create
 
-  scope :easy, ->(level) { where(level: level).order(created_at: :desc) }
+  default_scope { order(title: :desc) }
+
+  scope :level, ->(level) { where(level: level) }
+  scope :by_category, ->(title_category) { joins(:category).where(categories: { title: title_category }) }
+  scope :easy,    -> { level(0..1) }
+  scope :medium,  -> { level(2..4) }
+  scope :hard,    -> { level(5..Float::INFINITY) }
 
   def self.sort_by_category(category_title)
-    joins(:category)
-        .where(categories: { title: category_title })
-        .order(title: :desc)
+    by_category(category_title)
         .pluck(:title)
   end
 
