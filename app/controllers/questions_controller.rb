@@ -1,8 +1,12 @@
 class QuestionsController < ApplicationController
-  before_action :set_test, only: [:index, :show]
+  before_action :set_test, only: [:index, :create]
   before_action :set_question, only: [:show, :destroy]
+
+  rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
+
   def index
     result = @test.questions.pluck(:body)
+
     render plain: result.join("\n")
   end
 
@@ -44,5 +48,9 @@ class QuestionsController < ApplicationController
 
   def question_params
     params.require(:question).permit(:body)
+  end
+
+  def rescue_with_question_not_found
+    render plain: 'Question was not found'
   end
 end
