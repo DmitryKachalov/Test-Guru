@@ -2,10 +2,6 @@ Rails.application.routes.draw do
   #root to: 'tests#index'
 
   resources :tests do
-    resources :questions, shallow: true
+    resources :questions, shallow: true, except: :index
   end
-
-  get 'questions/:id/delete', to: 'questions#destroy'
-  #get '/tests/:category/:title', to: 'tests#search'
-
 end
