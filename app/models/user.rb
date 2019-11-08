@@ -6,6 +6,13 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :tests_created, class_name: 'Test', foreign_key: :author_id
 
+  VALID_EMAIL_PATTERN = /\A\w+@\w+\.\w+\z/
+
+  validates :name, :role, presence: true
+  validates :email, presence: true,
+            format: VALID_EMAIL_PATTERN,
+            uniqueness: { case_sensitive: false }
+
   has_secure_password
 
   def by_level(level)
