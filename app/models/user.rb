@@ -15,6 +15,11 @@ class User < ApplicationRecord
 
   has_secure_password
 
+  def self.authenticate(email:, password:)
+    user = User.find_by(email: email)
+    user&.authenticate(password)
+  end
+
   def by_level(level)
     tests.level(level)
   end
