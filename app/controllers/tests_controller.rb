@@ -47,8 +47,8 @@ class TestsController < ApplicationController
   private
 
 
-  def set_user
-    @user = User.first
+  def set_test
+    @test = Test.find(params[:id])
   end
 
   def test_params
