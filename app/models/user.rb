@@ -15,7 +15,6 @@ class User < ApplicationRecord
 
   VALID_EMAIL_PATTERN = /\A\w+@\w+\.\w+\z/
 
-  validates :name, :role, presence: true
   validates :email, presence: true,
             format: VALID_EMAIL_PATTERN,
             uniqueness: { case_sensitive: false }
