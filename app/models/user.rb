@@ -32,4 +32,7 @@ class User < ApplicationRecord
     test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 
+  def full_name
+    [first_name, last_name].join(' ').html_safe
+  end
 end
