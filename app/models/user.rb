@@ -1,6 +1,9 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+  has_many :test_passages, dependent: :nullify
+  has_many :tests, through: :test_passages
+  has_many :tests_created, class_name: 'Test', foreign_key: :author_id
+
   devise :database_authenticatable,
          :registerable,
          :recoverable,
@@ -8,16 +11,6 @@ class User < ApplicationRecord
          :trackable,
          :validatable,
          :confirmable
-
-  has_many :test_passages, dependent: :nullify
-  has_many :tests, through: :test_passages
-  has_many :tests_created, class_name: 'Test', foreign_key: :author_id
-
-  VALID_EMAIL_PATTERN = /\A\w+@\w+\.\w+\z/
-
-  validates :email, presence: true,
-            format: VALID_EMAIL_PATTERN,
-            uniqueness: { case_sensitive: false }
 
   def by_level(level)
     tests.level(level)
