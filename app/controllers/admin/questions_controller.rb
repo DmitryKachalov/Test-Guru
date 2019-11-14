@@ -1,12 +1,11 @@
-class QuestionsController < ApplicationController
+class Admin::QuestionsController < Admin::BaseController
 
   before_action :set_test, only: [:new, :create]
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def show
-  end
+  def show; end
 
   def new
     @question = @test.questions.new
@@ -16,18 +15,17 @@ class QuestionsController < ApplicationController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_path(@test), notice: 'Question was successfully created.'
+      redirect_to admin_test_path(@test), notice: 'Question was successfully created.'
     else
       render :new
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @question.update(question_params)
-      redirect_to test_path(@question.test), notice: "Question was updated."
+      redirect_to admin_test_path(@question.test), notice: 'Question was updated.'
     else
       render :edit
     end
@@ -35,8 +33,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-
-    redirect_to test_path(@question.test)
+    redirect_to admin_test_path(@question.test), notice: 'Question was deleted.'
   end
 
   private

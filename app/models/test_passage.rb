@@ -5,8 +5,6 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_question, on: %i[create update]
 
-  before_update :before_update_next_question
-
   SUCCESS_SCORE = 85
 
   def test_passed?

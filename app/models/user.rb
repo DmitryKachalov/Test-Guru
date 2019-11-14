@@ -19,11 +19,6 @@ class User < ApplicationRecord
             format: VALID_EMAIL_PATTERN,
             uniqueness: { case_sensitive: false }
 
-  def self.authenticate(email:, password:)
-    user = User.find_by(email: email)
-    user&.authenticate(password)
-  end
-
   def by_level(level)
     tests.level(level)
   end
@@ -34,5 +29,9 @@ class User < ApplicationRecord
 
   def full_name
     [first_name, last_name].join(' ').html_safe
+  end
+
+  def admin?
+    is_a?(Admin)
   end
 end
