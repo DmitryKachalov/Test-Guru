@@ -1,5 +1,10 @@
 ---
 ru:
+  hello: "Привет мир"
+
+  tests:
+    index:
+      header: "Доступные Тесты"
   activerecord:
     errors:
       messages:

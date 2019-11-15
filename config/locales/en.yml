@@ -1,5 +1,8 @@
 ---
 en:
+  tests:
+    index:
+      header: "Tricky Tests"
   activerecord:
     errors:
       messages:
