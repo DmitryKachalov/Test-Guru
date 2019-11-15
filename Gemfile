@@ -42,6 +42,7 @@ gem 'devise', '~> 4.0'
 # LOCALIZATION
 
 gem 'rails-i18n', '~> 5.1'
+gem 'devise-i18n'
 
 
 group :development, :test do
