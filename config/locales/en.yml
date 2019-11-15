@@ -1,8 +1,26 @@
 ---
 en:
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
   tests:
     index:
       header: "Tricky Tests"
+
+  admin:
+    tests:
+      create:
+        success: "Test was successfully created."
+      index:
+        header: "Tricky Tests"
 
   tests_mailer:
     completed_test:
@@ -165,13 +183,7 @@ en:
       header:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
-  helpers:
-    select:
-      prompt: Please select
-    submit:
-      create: Create %{model}
-      submit: Save %{model}
-      update: Update %{model}
+
   number:
     currency:
       format:

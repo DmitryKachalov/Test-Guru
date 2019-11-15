@@ -1,8 +1,26 @@
 ---
 ru:
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+
   tests:
     index:
       header: "Доступные Тесты"
+
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан."
+      index:
+        header: "Доступные Тесты"
 
   tests_mailer:
     completed_test:
@@ -201,13 +219,6 @@ ru:
         few: "%{model}: сохранение не удалось из-за %{count} ошибок"
         many: "%{model}: сохранение не удалось из-за %{count} ошибок"
         other: "%{model}: сохранение не удалось из-за %{count} ошибки"
-  helpers:
-    select:
-      prompt: 'Выберите: '
-    submit:
-      create: Создать %{model}
-      submit: Сохранить %{model}
-      update: Сохранить %{model}
   number:
     currency:
       format:
