@@ -5,6 +5,24 @@ ru:
   tests:
     index:
       header: "Доступные Тесты"
+
+  test_passages:
+    result:
+      header: "Тест %{title} успешно завершен!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   activerecord:
     errors:
       messages:

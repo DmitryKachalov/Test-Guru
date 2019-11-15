@@ -3,6 +3,20 @@ en:
   tests:
     index:
       header: "Tricky Tests"
+
+  test_passages:
+    result:
+      header: "The %{title} Test was Completed!"
+
+
+
+
+
+
+
+
+
+
   activerecord:
     errors:
       messages:
