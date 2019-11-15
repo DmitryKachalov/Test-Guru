@@ -4,6 +4,10 @@ en:
     index:
       header: "Tricky Tests"
 
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
+
   test_passages:
     result:
       header: "The %{title} Test was Completed!"

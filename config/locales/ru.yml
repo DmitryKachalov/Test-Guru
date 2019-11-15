@@ -6,6 +6,10 @@ ru:
     index:
       header: "Доступные Тесты"
 
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
+
   test_passages:
     result:
       header: "Тест %{title} успешно завершен!"
