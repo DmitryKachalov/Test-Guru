@@ -20,6 +20,14 @@ en:
   tests:
     index:
       header: "Tricky Tests"
+      no_tests_available: "Нет доступных тестов."
+      table:
+        title: "Название"
+        level: "Уровень"
+        questions: "Вопросы"
+        actions: "Действия"
+    test:
+      start_button: "Старт"
 
   admin:
     tests:
@@ -27,6 +35,8 @@ en:
         success: "Test was successfully created."
       index:
         header: "Tricky Tests"
+        no_tests_available: "There is no tests available."
+
 
   tests_mailer:
     completed_test:
