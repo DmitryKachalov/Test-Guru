@@ -8,6 +8,9 @@ en:
       question:
         create: "Create Question"
         update: "Update Question"
+      answer:
+        create: "Create Answer"
+        update: "Update Answer"
     label:
       test:
         title: "Title"
@@ -15,6 +18,9 @@ en:
         category_id: "Category"
       question:
         body: "Body"
+      answer:
+        body: "Body"
+        correct: "Correct"
 
   questions_helper:
     create:
@@ -93,7 +99,21 @@ en:
         success: "Question was successfully updated!"
       destroy:
         success: "Question was successfully deleted!"
-
+    answers:
+      edit:
+        header: "Edit Answer"
+      new:
+        header: "New Answer"
+      show:
+        header: "Question"
+        answer: "Answer"
+        correct: "Correct"
+      create:
+        success: "Answer was successfully created!"
+      update:
+        success: "Answer was successfully updated!"
+      destroy:
+        success: "Answer was successfully deleted!"
 
   tests_mailer:
     completed_test:
