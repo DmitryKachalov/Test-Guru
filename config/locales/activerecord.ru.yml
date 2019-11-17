@@ -7,6 +7,7 @@ ru:
       test:
         title: "Название"
         category: "Категория"
+
     errors:
       messages:
         blank: "не может быть пустым"
