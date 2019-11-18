@@ -1,5 +1,5 @@
 module ApplicationHelper
-  
+
   BOOTSTRAP_ALERTS = { 'notice' => 'alert-success', 'alert' => 'alert-danger' }.freeze
   DEFAULT_BOOTSTRAP_ALERT = 'alert-primary'.freeze
 
