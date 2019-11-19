@@ -14,13 +14,13 @@ Rails.application.routes.draw do
     # end
     member do
       post :start
-      post :gist
     end
   end
   # GET /test_passages/101/result
   resources :test_passages, only: %i[show update] do
     member do
       get :result
+      post :gist
     end
   end
 

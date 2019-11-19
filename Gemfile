@@ -39,6 +39,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise', '~> 4.0'
 
+# API wrappers
+
+gem "octokit", "~> 4.0"
+
 # NETWORKING
 
 gem 'faraday'
