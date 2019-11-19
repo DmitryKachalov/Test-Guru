@@ -47,6 +47,9 @@ ru:
         header_become_a_guru: "Стань Гуру"
         first_name: "Имя"
         last_name: "Фамилия"
+        enter_email: "Введите Email"
+        enter_first_name: "Введите имя"
+        enter_last_name: "Введите фамилию"
     sessions:
       signed_in: "Вход в систему выполнен."
       signed_out: "Выход из системы выполнен."
@@ -54,6 +57,8 @@ ru:
       new:
         enter_the_guru_gates: "Войти во Врата Гуру"
         enter: "Войти"
+        enter_email: "Введите email"
+        remember_me: "Запомнить меня"
       signed_in_welcome_message: "Привет, %{user_full_name}!"
     unlocks:
       send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по разблокировке вашей учётной записи."
