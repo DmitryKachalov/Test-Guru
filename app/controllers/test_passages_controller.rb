@@ -10,16 +10,16 @@ class TestPassagesController < ApplicationController
     result = gist_service.call
     gist_url = result.html_url
 
-    flash_options = if gist_service.success?
-                      gist_url_tag = %(<a href="#{gist_url}" target="_blank">gist.github.com</a>)
-                      current_user.gists.create(question: @test_passage.current_question,
-                                                url: gist_url)
-                      { notice: t('.success', url: gist_url_tag) }
-                    else
-                      { alert: t('.failure') }
-                    end
+    if gist_service.success?
+      Gist.create(user_id: current_user.id,
+                  question_id: @test_passage.current_question.id,
+                  url: gist_url)
+      flash[:notice] = "#{t('.success')} #{view_context.link_to gist_url.to_s, gist_url, target: '_blank'}"
+    else
+      flash[:alert] = t('.failure')
+    end
 
-    redirect_to @test_passage, flash_options
+    redirect_to @test_passage
   end
 
   def update
