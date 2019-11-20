@@ -1,9 +1,26 @@
 class TestPassagesController < ApplicationController
-  before_action :set_test_passage, only: %i[show update result]
+  before_action :set_test_passage, only: %i[show update result gist]
 
   def show; end
 
   def result; end
+
+  def gist
+    gist_service = GistQuestionService.new(@test_passage.current_question)
+    result = gist_service.call
+    gist_url = result.html_url
+
+    flash_options = if gist_service.success?
+                      gist_url_tag = %(<a href="#{gist_url}" target="_blank">gist.github.com</a>)
+                      current_user.gists.create(question: @test_passage.current_question,
+                                                url: gist_url)
+                      { notice: t('.success', url: gist_url_tag) }
+                    else
+                      { alert: t('.failure') }
+                    end
+
+    redirect_to @test_passage, flash_options
+  end
 
   def update
     @test_passage.accept!(params[:answer_ids])
