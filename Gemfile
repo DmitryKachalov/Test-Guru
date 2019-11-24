@@ -56,6 +56,7 @@ gem 'devise-i18n'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3.1'
+gem 'octicons_helper'
 
 group :development, :test do
  # .ENV
