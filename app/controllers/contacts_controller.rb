@@ -7,6 +7,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
 
     if @contact.save
+      ContactsMailer.contact_email(@contact).deliver_now
       redirect_to new_contact_path, notice: t('.success')
     else
       render :new
