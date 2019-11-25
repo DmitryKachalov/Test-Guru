@@ -18,6 +18,10 @@ document.addEventListener('turbolinks:load', () => {
         }
     }
 
-    passwordConfirmation.addEventListener('input', () => passwordCheck())
-    password.addEventListener('input', () => passwordCheck())
+
+    if (password && passwordConfirmation) {
+        passwordConfirmation.addEventListener('input', () => passwordCheck())
+        password.addEventListener('input', () => passwordCheck())
+    }
+
 })
