@@ -15,17 +15,15 @@ Rails.application.configure do
   config.consider_all_requests_local       = false
 
   config.action_mailer.perform_caching = false
-  config.action_mailer.default_url_options = { host: 'testguru-project.herokuapp.com' }
-  #config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: 'testguru-kachalov.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address:                'smtp.sendgrid.net',
-      port:                   587,
-      user_name:              ENV['SENDGRID_USERNAME'],
-      password:               ENV['SENDGRID_PASSWORD'],
-      domain:                 'heroku.com',
-      authentication:         'plain',
-      enable_starttls_auto:   true
+      address:              'smtp.gmail.com',
+      port:                 587,
+      user_name:            ENV['SMTP_USERNAME'],
+      password:             ENV['SMTP_PASSWORD'],
+      authentification:     'plain',
+      enable_starttls_auto: true
   }
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
