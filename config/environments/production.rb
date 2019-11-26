@@ -11,18 +11,17 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
-  config.action_controller.perform_caching = true
+  #config.consider_all_requests_local       = false
+  config.action_mailer.perform_caching = false
   config.action_mailer.default_url_options = { host: 'testguru-project.herokuapp.com' }
-  config.action_mailer.perform_deliveries = true
+  #config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address:                'smtp.sendgrid.net',
+      address:                'smtp.gmail.com',
       port:                   587,
-      user_name:              ENV['SENDGRID_USERNAME'],
-      password:               ENV['SENDGRID_PASSWORD'],
+      user_name:              ENV['SMTP_USERNAME'],
+      password:               ENV['SMTP_PASSWORD'],
       authentication:         'plain',
-      domain:                 'testguru-project.herokuapp.com',
       enable_starttls_auto:   true
   }
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
