@@ -1,6 +1,8 @@
 <% if resource.present? && resource.errors.present? %>
   <%= content_tag :div, class: 'resource-errors alert alert-danger',
-                  data: { resource_id: resource.id } do %>
+
+                  data: { resource_id: resource.persisted? ? resource.id : nil } do %>
+
     <h2><%= t('.header', count: resource.errors.count) %></h2>
 
     <ul>

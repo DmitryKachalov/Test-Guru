@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   #get 'sessions/new'
   #get 'users/new'
 
-
+  resources :contacts, only: :create
+  get 'contact-us', to: "contacts#new", as: "new_contact"
 
   resources :tests, only: :index do
     #resources :questions, shallow: true, except: :index do
