@@ -1,8 +1,8 @@
 <div class="row justify-content-md-center mt-3 ">
   <div class="col-md-auto mb-3">
-    <h1><%= t('tests.index.header') %></h1>
+    <h1><%= t('.header') %></h1>
 
-    <% if @tests.present? %>
+    <% if @badges.present? %>
       <table class="table table-striped table-hover">
         <thead class="thead-dark">
         <tr>
@@ -11,18 +11,15 @@
             <%= octicon 'arrow-up', class: 'text-success hide' %>
             <%= octicon 'arrow-down', class: 'text-success hide' %>
           </th>
-          <th><%= t('.table.level') %></th>
-          <th><%= t('.table.questions') %></th>
-          <th><%= t('.table.category') %></th>
-          <th><%= t('.table.timer') %></th>
-          <th><%= t('.table.actions') %></th>
+          <th><%= t('.table.image') %></th>
         </tr>
         </thead>
 
-      <%= render @tests %>
+        <%= render @badges %>
+
       </table>
     <% else %>
-      <p><%= t('.no_tests_available') %></p>
+      <p><%= t('.no_badges_available') %></p>
     <% end %>
 
   </div>

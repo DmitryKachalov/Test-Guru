@@ -27,8 +27,8 @@ bill = User.create(first_name: 'Bill', last_name: 'Jones',email: 'BillyBo@gmailt
 
 html = frontend.tests.create(title: 'HTML', level: 0, author: john)
 css = frontend.tests.create(title: 'CSS', level: 1, author: john)
-ruby = backend.tests.create(title: 'Ruby', level: 2, author: bill)
-go_lang = backend.tests.create(title: 'Go', level: 3, author: bill)
+ruby = backend.tests.create(title: 'Ruby', level: 2, timer: 15,  author: bill)
+go_lang = backend.tests.create(title: 'Go', level: 3, timer: 15,  author: bill)
 swift = mobile.tests.create(title: 'Swift', level: 4, author: daniel)
 
 # Questions
@@ -52,14 +52,33 @@ Answer.create(
      { body: 'Linus Torvalds', correct: false, question: questions[2] },
      { body: 'Stefan Wintermeyer', correct: false, question: questions[2] },
      { body: 'Nil', correct: true, question: questions[3] },
-     { body: 'false', correct: false, question: questions[3] }]
+     { body: 'false', correct: false, question: questions[3] },
+     { body: 'GoLang false answer', correct: false, question: questions[4] },
+     { body: 'GoLang TRUE answer', correct: true, question: questions[4] }
+    ]
 )
 
 # Results
 
 TestPassage.create(
-    [{ user: john, test: html, status: 'Finished' },
-     { user: john, test: css, status: 'Not started' },
-     { user: daniel, test: ruby, status: 'Not finished' },
-     { user: bill, test: go_lang, status: 'Finished' }]
+    [{ user: john, test: html, status: 'Finished', success: true },
+     { user: john, test: css, status: 'Not started', success: false },
+     { user: daniel, test: ruby, status: 'Not finished', success: false }]
+)
+
+# badges
+
+Badge.create(
+    [{ name: "Бэйдж после успешного прохождения всех тестов из категории Backend",
+       image_url: "badges/achievement_silver.png",
+       rule_type: "category",
+       rule_option: 2 },
+     { name: "Бэйдж после успешного прохождения теста с первой попытки",
+       image_url: "badges/achievement_bronze.png",
+       rule_type: "first_try" },
+     { name: "Бэйдж после успешного прохождения всех тестов определённого уровня",
+       image_url: "badges/achievement_gold.png",
+       rule_type: "level",
+       rule_option: 2 }
+    ]
 )
